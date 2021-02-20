@@ -8,8 +8,6 @@
         let carrito = document.getElementById("cart_items");
 
         let cantidadRestante = 10;
-
-        
         
         let comprar = function(event) {
             // Crear un nuevo nodo con el elemento comprado
@@ -41,23 +39,23 @@
             let labelStock2 = this.querySelector('#item_container > div > .stock');
             cantidadRestante--;
             labelStock2.innerHTML = "Stock " + cantidadRestante;
-        }
+        //---------------------------------------
+
+        let aspas = document.querySelectorAll("#cart_items > div > a");
+        console.log(aspas);
         
         let borrarArticulo = function(event) {
+            event.preventDefault();
             let articulosComprados = document.querySelectorAll('#cart_items > div');
-            console.log(articulosComprados)
-            let elementoPadre = this.querySelector('id');
-            console.log(elementoPadre);
+            console.log(articulosComprados);
+            let elementoPadre = this.id;
+            console.log(elementoPadre.innerHTML);
+            }
+            aspas.forEach(aspas =>
+                aspas.addEventListener('click', borrarArticulo));
         }
         
         articulos.forEach(articulos => 
             articulos.addEventListener('dblclick', comprar));
-
-        //aspaBorrar.forEach(articulosComprados =>
-        //    aspaBorrar.addEventListener('click', borrarArticulo));
-
-        
-
-
     });
 })();
